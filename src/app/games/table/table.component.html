@@ -1,0 +1,16 @@
+<table style="width: 100%;" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let game of list' [routerLink]="['edit/', game?._id]">
+            <th>{{game?.name}}</th>
+            <td>{{game?.publish_date | date: 'yyyy.'}}</td>
+            <td>{{game?.rating}}</td>
+        </tr>
+    </tbody>
+</table>

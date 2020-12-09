@@ -1,0 +1,22 @@
+<div class="bg-light mt-3">
+        <form [formGroup]="formValidator" (submit)="onSubmit()">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" formControlName="name">
+            </div>
+            <div class="clearfix">
+                <label for="description" class="float-left">Description</label>
+                <textarea name="description" id="description" rows="5" formControlName="description"></textarea>
+            </div>
+            <div class="clearfix mt-2 last">
+                <label for="publish_date" class="float-left">Publish date:</label>
+                <ngb-datepicker class="float-left" #dp name="publish_date" formControlName="publish_date" [startDate]="publishDate" (dateSelect)="setDate()"></ngb-datepicker>
+                <label class="float-left category" for="categories">Categories:</label>
+                <select  class="float-left" name="categories" id="categories" formControlName="categories" multiple>
+                    <option value="">All</option>
+                    <option *ngFor="let c of categories" [value]="c">{{c}}</option>
+                </select>
+                <button type="submit" class="btn btn-primary" [disabled]="formValidator.invalid">Save</button>
+            </div>
+        </form>
+    </div>
